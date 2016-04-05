@@ -1,12 +1,13 @@
 Monasanto App for Smart cities and IOT
 
 TECH STACK :
-Node.js
-Bootstrap
-Gulp
-Angular.js
-HighCharts.js
-MySQL
+1. Node.js
+2. Bootstrap
+3. Gulp
+4. Angular.js
+5. HighCharts.js
+6. MySQL
+
 
 STEPS TO RUN THE APP:
 
