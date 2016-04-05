@@ -1,0 +1,144 @@
+html,body {
+    height: 100%;
+}
+
+body {
+        background-color: #071019;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid{
+    height: 100%;
+}
+
+.mainRow{
+    height: 100%
+}
+
+.iconRow{
+    height: 34%;   
+}
+
+.table > tr {
+    border-bottom: 1px solid #aab; 
+}
+
+.iconDivClass{
+    padding: 1%;   
+}
+
+.metricsRow {
+    height: 58%;
+}
+
+.leftCol {
+    height: 90%;
+}
+
+.rightCol{
+    height: 90%;
+}
+.dummyRightRow{
+    height: 15%;
+}
+
+.mainRightRow {
+    
+    font-size: 19px;
+    color: white;
+     height: 70%;
+         font-family: cursive;
+}
+
+.mainRightRow > .col-md-8{
+   background: #071019;
+} 
+
+.font-2{
+           font-size: 27px;
+    font-family: serif;
+}
+
+.color_2 {
+     color: #5bc0de;
+}
+
+.color_gray {
+    color: darkslategrey;
+}
+
+.color_white {
+     color: white;
+}
+
+.font_1 {
+    font-family: monospace;
+}
+
+.font_2 {
+    font-size: 22px;
+}
+
+.font_3{
+    font-family: serif;
+    font-size: 21px;
+}
+
+.maxFont {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.right_2{
+    height: 10%;
+    margin: 2%;
+    margin-bottom: 6%;
+}
+
+.right_1{
+    height: 15%;
+    margin: 1%;
+}
+
+.right_3 {
+    height: 45%;
+        font-family: monospace;
+}
+
+.marg-bottom {
+    margin-bottom: 6%;
+}
+
+.marg_bottom_md {
+    margin-bottom: 3%;
+}
+
+.marg_top_bottom {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.buttonInfo {
+    color: black;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.toggleGroup , .citizenButton{
+        margin: 2%;
+}
+
+.tablehead {
+    background-color: white;
+}
+
+.img-full {
+    min-width: 100%;
+    max-height: 500px;
+}
+
+.round_butt{
+    border-radius: 5px;
+}
+
