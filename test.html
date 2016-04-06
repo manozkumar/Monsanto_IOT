@@ -7,15 +7,60 @@
 	</head>
     <body>
         <div class = "container-fluid">
+            <div class="row locationRow marg_bottom_md">
+                  <aside class="call-to-action bg-primary">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 text-center">
+                                
+                            </div>
+                            <div class="col-lg-2 col-md-2 text-center btn btn-warning">
+                                <a href="index.html/#portfolio" class ="btn-warning backText"><i class="fa fa-arrow-left fa-1x"></i>&nbsp;Back </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center marg_bottom_sm">
+                                <h3>Please select locations to view sensor statistics from live sites.</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2"></div>
+                            <div class="col-lg-4 text-center">
+                              
+                                <div class = "form-group">
+                                     <label class ="form-label" for = "location">Location</label><br/>
+                                    <select id = "location" class ="btn-lg btn-success">
+                                        <option class ="btn">HYD</option>
+                                        <option>PUN</option>
+                                        <option>CHE</option>
+                                        <option>CMB</option>
+                                    </select>         
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div class = "form-group">
+                                    <label for = "sublocation">Sub-location</label><br/>
+                                    <select id = "sublocation" class ="btn-lg btn-success">
+                                                <option>IIIT Campus</option>
+                                                <option>VIRTUSA Campus</option>
+                                                <option>Cyber Pearl</option>
+                                                <option>DLF Lab</option>
+                                    </select>         
+                                </div>        
+                            </div>
+                            <div class="col-lg-2 col-md-2"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="row locationRow">
+                <div class = "col-lg-4 col-md-4">
+                    
+                </div>
+            </div>
             <div class="row mainRow">
                 <div class = "col-md-4 col-sm-4 leftCol">
-                    <div class="row iconRow">
-                        <div class="col-md-1 col-sm-1"></div>
-                        <div class = "col-md-10 col-sm-10 iconDivClass">
-                            <img class="img-responsive" src = ""></img>
-                        </div>
-                        <div class="col-md-1 col-sm-1"></div>
-                    </div>
+                    
                     <div class="row metricsRow">
                         <div class="col-md-2 col-sm-2"></div>
                         <div class = "col-md-8 col-sm-8">
@@ -68,15 +113,14 @@
                     </div>
                 </div>
                 <div class = "col-md-8 col-sm-8 rightCol">
-                  <div class = "row dummyRightRow">
-                    <div class = "col-md-12 col-sm-12"></div>
-                  </div>
+                  
                   <div class = "row mainRightRow">
-                    <div class = "col-md-8 col-sm-8">
+                    <div class = "col-lg-2 col-md-2 col-sm-2"></div>
+                    <div class = "col-lg-8 col-md-8 col-sm-8">
                         <div class = "row right_1">
                             <div class = "col-md-1 col-sm-1"></div>
                             <div class = "col-md-3 col-sm-3">
-                              <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
+                              <i class="fa fa-gear fa-spin fa-3x"></i>
                             </div>
                             <div class = "col-md-8 col-sm-8">
                               <span class= "font-2"> IIIT Campus </span> <br><span class ="color_2 font_3"> <i class="fa fa-map-marker fa-1x"></i>&nbsp; HYD </span>
@@ -193,7 +237,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "col-md-4 col-sm-4"></div>
+                    <div class = "col-lg-2 col-md-2 col-sm-2"></div>
                   </div>
                   <div class = "row dummyRightRow">
                     <div id = "chartRow" class = "col-md-12 col-sm-12"></div>
