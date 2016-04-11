@@ -21,6 +21,7 @@ var config = {
             './css/test.css'
     	   ],
         jquery : 'node_modules/jquery/dist/jquery.min.js',
+		angular: 'node_modules/angular/angular.min.js',
         bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.min.js',
         js:  'js/*.js'
 	}
@@ -50,13 +51,20 @@ gulp.task('bootstrap', function() {
 		.pipe(gulp.dest(config.paths.dist + '/lib'))
 });
 
+gulp.task('angular', function() {
+	gulp.src(config.paths.angular)
+		.pipe(gulp.dest(config.paths.dist + '/lib'))
+});
+
+
+
 gulp.task('fonts', function() {
 	gulp.src(config.paths.fonts)
 		.pipe(gulp.dest(config.paths.dist + '/fonts'))
 });
 
 gulp.task('js', function() {
-	gulp.src(['js/app.js', 'js/templateCode.js'])
+	gulp.src(['js/app.js','js/baseController.js','js/charts.js','js/statController.js','js/templateCode.js'])
 		.pipe(concat('bundle.js'))
 		.pipe(gulp.dest(config.paths.dist + '/js'))
 		.pipe(connect.reload());
@@ -90,4 +98,4 @@ gulp.task('watch', function() {
 	gulp.watch(config.paths.js, ['js', 'lint']);
 });
 
-gulp.task('default', [ 'js', 'jquery','browserify', 'fonts' ,'bootstrap', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', [ 'js', 'jquery','browserify', 'fonts' ,'bootstrap', 'angular', 'css', 'lint', 'open', 'watch']);
