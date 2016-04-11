@@ -9,16 +9,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Montanso </title>
+    <title> Monsanto </title>
     <link href="prod/css/bundle.css" rel="stylesheet">
+		<script src="prod/lib/jquery.min.js"></script>
+    <script src="prod/lib/angular.min.js"></script>
+    <script src="prod/lib/bootstrap.min.js"></script>
+    <script src="prod/final/bundle.js"></script>
 
 </head>
 
-<body>
+<body ng-app='MosantoApp' ng-controller="BaseController">
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
+   <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
@@ -42,20 +46,20 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1 class = "color_gray">Monsanto</h1>
-            <h3>Smart cities &amp; IOT</h3>
+            <h1 class = "color_gray">{{homeData.staticData.TITLE}}</h1>
+            <h3>{{homeData.staticData.TITLE_LABEL}}</h3>
             <br>
-            <a href="#about" class="btn btn-info btn-lg">Find out more</a>
+            <a href="#about" class="btn btn-info btn-lg">{{homeData.staticData.FIND_LABEL}}</a>
         </div>
     </header>
 
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center color_2">
-                    <h2>Lets make our city more livable!</h2>
-                    <p class="lead">This portal aims at gathering all the data gathered from various sensors installed at different points in our labs </p>
+                    <h2>{{homeData.staticData.CITY_TTILE}}</h2>
+                    <p class="lead">{{homeData.staticData.CITY_LABEL}}</p>
                 </div>
             </div>
         </div>
@@ -77,13 +81,13 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="img-responsive img-full" src="img/rsz_1new_2.png" alt="">
+                                <img class="img-responsive img-full" src="img/rsz_citi_4.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-responsive img-full" src="img/rsz_theme1.jpg" alt="">
+                                <img class="img-responsive img-full" src="img/rsz_citi_1.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-responsive img-full" src="img/size_3.png" alt="">
+                                <img class="img-responsive img-full" src="img/rsz_citi_3.jpg" alt="">
                             </div>
                         </div>
 
@@ -108,15 +112,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 text-center">
-                    <h2 class = "color_white">Our Work</h2>
+                    <h2 class = "color_white">{{homeData.staticData.WORK_LABEL}}</h2>
                     <hr class="small marg-bottom">
-                    <div class="row">
+                    <div class="row" ng-controller="chartController">
                         <div class="col-md-6" id = "container"></div>
                         <div class="col-md-6" id = "chartRow"></div>
                        
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="test.html" class="btn btn-info btn-lg marg_top_bottom">View detailed statistics</a>
+                    <a href="details.html" class="btn btn-info btn-lg marg_top_bottom">{{homeData.staticData.VIEW_STAT_LABEL}}</a>
                 </div>
                 
             </div>
@@ -130,9 +134,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>You can zoom in the graph if you need attention to detail, Just click and drag through x -axis.</h3>
-                    <a href="javascript:void(0)" class="btn btn-lg btn-light round_butt">(54) Liked it!</a>
-                    <a href="javascript:void(0)" class="btn btn-lg btn-dark round_butt">(12) Not bad!</a>
+                    <h3>{{homeData.staticData.GRAPH_LABEL}}</h3>
+                    <a href="javascript:void(0)" class="btn btn-lg btn-light round_butt">{{homeData.staticData.LIKED_LABEL}}</a>
+                    <a href="javascript:void(0)" class="btn btn-lg btn-dark round_butt">{{homeData.staticData.NOT_BAD_LABEL}}</a>
                 </div>
             </div>
         </div>
@@ -154,7 +158,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center color_white">
-                    <h4><strong>Monsanto</strong>
+                    <h4><strong>{{homeData.staticData.TITLE}}</strong>
                     </h4>
                     <p>Virtusa Consulting Services<br>Nanakramguda, HYD 500019</p>
                     <ul class="list-unstyled">
@@ -182,9 +186,6 @@
         </div>
     </footer>
 
-    <script src="prod/lib/jquery.min.js"></script>
-    <script src="prod/lib/bootstrap.min.js"></script>
-    <script src="prod/final/bundle.js"></script>
     <!--
     <script src="js/jquery.js"></script>
      jQuery 

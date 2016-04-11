@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/test.css">
+		<script src="prod/lib/jquery.min.js"></script>
+    <script src="prod/lib/angular.min.js"></script>
+    <script src="prod/lib/bootstrap.min.js"></script>
+    <script src="prod/final/bundle.js"></script>
+	</head>
+    <body ng-app='MosantoApp' ng-controller="statController">
+        <div class = "container-fluid">
+            <div class="row locationRow marg_bottom_md">
+                  <aside class="call-to-action bg-primary">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 text-center">
+                                
+                            </div>
+                            <div class="col-lg-2 col-md-2 text-center btn btn-warning">
+                                <a href="index.html" class ="btn-warning backText"><i class="fa fa-arrow-left fa-1x"></i>&nbsp;Back </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center marg_bottom_sm">
+                                <h3>{{statData.staticData.SELECT_LABEL}}</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2"></div>
+                            <div class="col-lg-4 text-center">
+                              
+                                <div class = "form-group">
+                                     <label class ="form-label" for = "location">{{statData.staticData.LOC_LABEL}}</label><br/>
+                                    <select id = "location" class ="btn-lg btn-success" ng-options="option.Value as option.Key for option in LocData" ng-model="report.loc" ng-change="changedLocValue(report)">
+										<option value="" ng-disabled="true">Select Option</option>
+                                    </select>      
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div class = "form-group">
+                                    <label for = "sublocation">{{statData.staticData.SUB_LOC_LABEL}}</label><br/>
+                                    <select id = "sublocation" class ="btn-lg btn-success" ng-options="option.Value as option.Key for option in subLocData" ng-model="report.subloc" ng-change="changedSubLocValue(report)" >
+                                              <option value="" ng-disabled="true">Select Option</option>
+                                    </select>         
+                                </div>        
+                            </div>
+                            <div class="col-lg-2 col-md-2"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="row locationRow">
+                <div class = "col-lg-4 col-md-4">
+                    
+                </div>
+            </div>
+            <div class="row mainRow">
+                <div class = "col-md-4 col-sm-4 leftCol">
+                    
+                    <div class="row metricsRow">
+                        <div class="col-md-2 col-sm-2"></div>
+                        <div class = "col-md-8 col-sm-8">
+                            <div class="btn-group floLeft toggleGroup">
+                              <button type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                              </button>
+                              <button type="button" class="btn btn-default">
+                                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                              </button>
+                            </div>
+                            <div class = "citizenButton">
+                                <button class = "btn btn-info btn-lg">{{statData.staticData.CITIZENS}}</button>
+                            </div>
+                            <div class="table-responsive">          
+                              <table class="table">
+                                <thead class = "tablehead">
+                                  <tr>
+                                    <th class ="font_2 font_1">{{statData.staticData.CITIZENS_COMMUNITY}}</th>
+                                    <th class = "maxFont">{{statReportData.CITIZENS_COMMUNITY_VALUE}}</th>
+                                  </tr>
+                                </thead>
+                                <tbody class ="color_2">
+                                  <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-record" aria-hidden="true"></span> 
+                                        &nbsp; {{statData.staticData.ONLINE_SENSORS}}
+                                      </td>
+                                     <td>{{statReportData.ONLINE_SENSORS_VALUE}}</td>
+                                    </tr>
+                                    <tr>
+                                    <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span> 
+                                    &nbsp; {{statData.staticData.OFFLINE_SENSORS}}</td>                                    
+                                    <td>{{statReportData.OFFLINE_SENSORS_VALUE}}</td>
+                                  </tr>
+                                    <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-record" aria-hidden="true"> </span> 
+                                    &nbsp; {{statData.staticData.KICKSTARTER_BACKERS}}</td>
+                                    <td>{{statReportData.KICKSTARTER_BACKERS_VALUE}}</td>
+                                  </tr>
+                                    <tr>
+                                        <td><button class = "btn btn-success">{{statData.staticData.SHARE}}</button></td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2"></div>
+                    </div>
+                </div>
+                <div class = "col-md-8 col-sm-8 rightCol">
+                  
+                  <div class = "row mainRightRow">
+                    <div class = "col-lg-2 col-md-2 col-sm-2"></div>
+                    <div class = "col-lg-8 col-md-8 col-sm-8">
+                        <div class = "row right_1">
+                            <div class = "col-md-1 col-sm-1"></div>
+                            <div class = "col-md-3 col-sm-3">
+                              <i class="fa fa-gear fa-spin fa-3x"></i>
+                            </div>
+                            <div class = "col-md-8 col-sm-8">
+                              <span class= "font-2"> {{report.subloc}} </span> <br><span class ="color_2 font_3"> <i class="fa fa-map-marker fa-1x"></i>&nbsp; {{report.loc}} </span>
+                            </div>
+                        </div>
+                        <div class = "row right_2">
+                            <div class = "col-md-1 col-sm-1"></div>
+                            <div class = "col-md-3 col-sm-3">
+                              <div class = "btn btn-info buttonInfo">Refresh</div>
+                            </div>
+                            <div class = "col-md-8 col-sm-8">
+                              <span class = "color_2 font_1">{{statData.staticData.LAST_UPDATED_LABEL}}</span> <span class= "font_1">23/04/14 10:37:16 AM</span>
+                            </div>
+                        </div>
+                        <div class = "row right_3">
+                            <div class = "col-md-6 col-sm-6">
+                              <div class = "row">
+                                <div class = "col-md-12 col-sm-12">
+                                    <div class = "row marg-bottom">
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                        <div class = "col-md-2 col-sm-2">
+                                          <i class="fa {{classname}} fa-2x"></i>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span>'C <span class = "color_2">{{statData.staticData.TEMP_LABEL}}</span></span>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span class = "maxFont" > {{statReportData.TEMP_VALUE}} </span>
+                                        </div>
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                    </div>
+                                     <div class = "row  marg-bottom">
+                                      <div class = "col-md-2 col-sm-2"></div>
+                                        <div class = "col-md-2 col-sm-2">
+                                          <i class="fa fa-certificate fa-2x"></i>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span>LUX <span class = "color_2">{{statData.staticData.LIGHT_LABEL}}</span></span>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span class = "maxFont"> {{statReportData.LIGHT_VALUE}} </span>
+                                        </div>
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                    </div>
+                                     <div class = "row  marg-bottom">
+                                      <div class = "col-md-2 col-sm-2"></div>
+                                      <div class = "col-md-2 col-sm-2">
+                                          <i class="fa fa-cloud fa-2x"></i>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span>KQ <span class = "color_2">{{statData.staticData.CO_LABEL}}</span></span>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span class = "maxFont"> {{statReportData.CO_VALUE}} </span>
+                                        </div>
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                    </div>
+                                    <div class = "row  marg-bottom">
+                                      <div class = "col-md-2 col-sm-2"></div>
+                                        <div class = "col-md-2 col-sm-2">
+                                          <i class="fa fa-random fa-2x"></i>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span>NETS <span class = "color_2">{{statData.staticData.NETS_LABEL}}</span></span>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span class = "maxFont"> {{statReportData.NETS_VALUE}} </span>
+                                        </div>
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class = "col-md-6 col-sm-6">
+                                 <div class = "row  marg-bottom">
+                                  <div class = "col-md-2 col-sm-2"></div>
+                                        <div class = "col-md-2 col-sm-2">
+                                          <i class="fa fa-mixcloud fa-2x"></i>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span>% <span class = "color_2">{{statData.staticData.HUM_LABEL}}</span></span>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3">
+                                          <span class = "maxFont"> {{statReportData.HUM_VALUE}} </span>
+                                        </div>
+                                        <div class = "col-md-2 col-sm-2"></div>
+                                  </div>
+                                   <div class = "row  marg-bottom">
+                                    <div class = "col-md-2 col-sm-2"></div>
+                                      <div class = "col-md-2 col-sm-2">
+                                        <i class="fa fa-volume-up fa-2x"></i>
+                                      </div>
+                                      <div class = "col-md-3 col-sm-3">
+                                        <span>DB <span class = "color_2">{{statData.staticData.NOISE_LABEL}}</span></span>
+                                      </div>
+                                      <div class = "col-md-3 col-sm-3">
+                                        <span class = "maxFont"> {{statReportData.NOISE_VALUE}} </span>
+                                      </div>
+                                      <div class = "col-md-2 col-sm-2"></div>
+                                  </div>
+                                   <div class = "row  marg-bottom">
+                                    <div class = "col-md-2 col-sm-2"></div>
+                                      <div class = "col-md-2 col-sm-2">
+                                        <i class="fa fa-bitbucket fa-2x"></i>
+                                      </div>
+                                      <div class = "col-md-3 col-sm-3">
+                                        <span>KQ <span class = "color_2">{{statData.staticData.NO2_LABEL}}</span></span>
+                                      </div>
+                                      <div class = "col-md-3 col-sm-3">
+                                        <span class = "maxFont"> {{statReportData.NO2_VALUE}} </span>
+                                      </div>
+                                      <div class = "col-md-2 col-sm-2"></div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "col-lg-2 col-md-2 col-sm-2"></div>
+                  </div>
+                  <div class = "row dummyRightRow">
+                    <div id = "chartRow" class = "col-md-12 col-sm-12"></div>
+                  </div>
+                </div>
+        
+            </div>
+        </div>
+    
+        <script   src="https://code.jquery.com/jquery-2.2.2.js"   integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE="   crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		
+	</body>
+</html>
