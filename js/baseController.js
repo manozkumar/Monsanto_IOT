@@ -2,6 +2,9 @@
 angular.module('MosantoApp').controller('BaseController', ['$rootScope', '$scope',
         function($rootScope, $scope ) {
 			console.log("BaseController");
+            var jD = jsonData ? jsonData : "jsonData not loaded";
+
+console.log("---> jD ", jD);
 			$scope.homeData={
     "staticData": {
         "CITY_TTILE": "Lets make our city more livable!",

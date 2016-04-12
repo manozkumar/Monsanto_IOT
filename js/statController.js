@@ -3,16 +3,29 @@ angular.module('MosantoApp').controller('statController', ['$rootScope', '$scope
         function($rootScope, $scope ) {
 			console.log("statController");
 			$scope.classname="fa-cloud";
+            var jD = jsonData ? jsonData : "jsonData not loaded";
+            
+             $scope.sys_date = new Date();
+
+console.log("---> jD ", jD[0]);
+            $scope.LocData=jD[0];
+            $scope.subLocData=jD[1];
+            $scope.sensorStatReportData=jD[2][0];
+           /* console.log(angular.toJson($scope.sensorStatReportData));*/
 			
 			$scope.report={
-				
-				"loc":"HYD",
-				"subloc":"IIIT Campus"
-				
-			}
+
+	"loc": {
+		"location_name": "Hyderabad"
+	},
+	"subloc": {
+		"sub_location_name": "IIIT Campus"
+	}
+
+};
 			
 			$scope.changedLocValue=function(reportObj){
-				if(reportObj.loc === "PUN"){
+/*				if(reportObj.loc === "PUN"){
 					$scope.subLocData=[
     {
         "Key": "NIT Campus",
@@ -81,7 +94,7 @@ $scope.statReportData={
     "NOISE_VALUE": " 87.7",
     "NO2_VALUE": "2"
 };
-				}
+				}*/
 			};
 			
 			
@@ -132,7 +145,7 @@ $scope.statReportData={
     "NO2_VALUE": "0"
 };
 
-$scope.LocData=[
+/*$scope.LocData=[
     {
         "Key": "HYD",
         "Value": "HYD"
@@ -149,9 +162,9 @@ $scope.LocData=[
         "Key": "CMB",
         "Value": "CMB"
     }
-];
+];*/
 
-$scope.subLocData=[
+/*$scope.subLocData=[
     {
         "Key": "IIIT Campus",
         "Value": "IIIT Campus"
@@ -168,6 +181,6 @@ $scope.subLocData=[
         "Key": "DLF Lab",
         "Value": "DLF Lab"
     }
-];
+];*/
 
    }]);

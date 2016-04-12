@@ -33,7 +33,7 @@
                               
                                 <div class = "form-group">
                                      <label class ="form-label" for = "location">{{statData.staticData.LOC_LABEL}}</label><br/>
-                                    <select id = "location" class ="btn-lg btn-success" ng-options="option.Value as option.Key for option in LocData" ng-model="report.loc" ng-change="changedLocValue(report)">
+                                    <select id = "location" class ="btn-lg btn-success" ng-options="option as option.location_name for option in LocData" ng-model="report.loc" ng-change="changedLocValue(report)">
 										<option value="" ng-disabled="true">Select Option</option>
                                     </select>      
                                 </div>
@@ -41,7 +41,7 @@
                             <div class="col-lg-4 text-center">
                                 <div class = "form-group">
                                     <label for = "sublocation">{{statData.staticData.SUB_LOC_LABEL}}</label><br/>
-                                    <select id = "sublocation" class ="btn-lg btn-success" ng-options="option.Value as option.Key for option in subLocData" ng-model="report.subloc" ng-change="changedSubLocValue(report)" >
+                                    <select id = "sublocation" class ="btn-lg btn-success" ng-options="option as option.sub_location_name for option in subLocData" ng-model="report.subloc" ng-change="changedSubLocValue(report)" >
                                               <option value="" ng-disabled="true">Select Option</option>
                                     </select>         
                                 </div>        
@@ -121,7 +121,7 @@
                               <i class="fa fa-gear fa-spin fa-3x"></i>
                             </div>
                             <div class = "col-md-8 col-sm-8">
-                              <span class= "font-2"> {{report.subloc}} </span> <br><span class ="color_2 font_3"> <i class="fa fa-map-marker fa-1x"></i>&nbsp; {{report.loc}} </span>
+                              <span class= "font-2"> {{report.subloc.sub_location_name}} </span> <br><span class ="color_2 font_3"> <i class="fa fa-map-marker fa-1x"></i>&nbsp; {{report.loc.location_name}} </span>
                             </div>
                         </div>
                         <div class = "row right_2">
@@ -130,7 +130,7 @@
                               <div class = "btn btn-info buttonInfo">Refresh</div>
                             </div>
                             <div class = "col-md-8 col-sm-8">
-                              <span class = "color_2 font_1">{{statData.staticData.LAST_UPDATED_LABEL}}</span> <span class= "font_1">23/04/14 10:37:16 AM</span>
+                              <span class = "color_2 font_1">{{statData.staticData.LAST_UPDATED_LABEL}}</span> <span class= "font_1">{{sys_date  | date:'dd-MM-yyyy'}} {{sys_date | date:'hh:mm:ss a'}} </span>
                             </div>
                         </div>
                         <div class = "row right_3">
@@ -146,7 +146,7 @@
                                           <span>'C <span class = "color_2">{{statData.staticData.TEMP_LABEL}}</span></span>
                                         </div>
                                         <div class = "col-md-3 col-sm-3">
-                                          <span class = "maxFont" > {{statReportData.TEMP_VALUE}} </span>
+                                          <span class = "maxFont" > {{sensorStatReportData.temp_sensor}} </span>
                                         </div>
                                         <div class = "col-md-2 col-sm-2"></div>
                                     </div>
@@ -159,7 +159,7 @@
                                           <span>LUX <span class = "color_2">{{statData.staticData.LIGHT_LABEL}}</span></span>
                                         </div>
                                         <div class = "col-md-3 col-sm-3">
-                                          <span class = "maxFont"> {{statReportData.LIGHT_VALUE}} </span>
+                                          <span class = "maxFont"> {{sensorStatReportData.light_sensor}} </span>
                                         </div>
                                         <div class = "col-md-2 col-sm-2"></div>
                                     </div>
@@ -172,7 +172,7 @@
                                           <span>KQ <span class = "color_2">{{statData.staticData.CO_LABEL}}</span></span>
                                         </div>
                                         <div class = "col-md-3 col-sm-3">
-                                          <span class = "maxFont"> {{statReportData.CO_VALUE}} </span>
+                                          <span class = "maxFont"> {{sensorStatReportData.CO_sensor}} </span>
                                         </div>
                                         <div class = "col-md-2 col-sm-2"></div>
                                     </div>
@@ -185,7 +185,7 @@
                                           <span>NETS <span class = "color_2">{{statData.staticData.NETS_LABEL}}</span></span>
                                         </div>
                                         <div class = "col-md-3 col-sm-3">
-                                          <span class = "maxFont"> {{statReportData.NETS_VALUE}} </span>
+                                          <span class = "maxFont"> {{sensorStatReportData.NETS_sensor}} </span>
                                         </div>
                                         <div class = "col-md-2 col-sm-2"></div>
                                     </div>
@@ -202,7 +202,7 @@
                                           <span>% <span class = "color_2">{{statData.staticData.HUM_LABEL}}</span></span>
                                         </div>
                                         <div class = "col-md-3 col-sm-3">
-                                          <span class = "maxFont"> {{statReportData.HUM_VALUE}} </span>
+                                          <span class = "maxFont"> {{sensorStatReportData.hum_sensor}} </span>
                                         </div>
                                         <div class = "col-md-2 col-sm-2"></div>
                                   </div>
@@ -215,7 +215,7 @@
                                         <span>DB <span class = "color_2">{{statData.staticData.NOISE_LABEL}}</span></span>
                                       </div>
                                       <div class = "col-md-3 col-sm-3">
-                                        <span class = "maxFont"> {{statReportData.NOISE_VALUE}} </span>
+                                        <span class = "maxFont"> {{sensorStatReportData.noise_sensor}} </span>
                                       </div>
                                       <div class = "col-md-2 col-sm-2"></div>
                                   </div>
@@ -228,7 +228,7 @@
                                         <span>KQ <span class = "color_2">{{statData.staticData.NO2_LABEL}}</span></span>
                                       </div>
                                       <div class = "col-md-3 col-sm-3">
-                                        <span class = "maxFont"> {{statReportData.NO2_VALUE}} </span>
+                                        <span class = "maxFont"> {{sensorStatReportData.NO2_sensor}} </span>
                                       </div>
                                       <div class = "col-md-2 col-sm-2"></div>
                                   </div>

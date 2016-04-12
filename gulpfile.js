@@ -28,7 +28,7 @@ var config = {
 };
 
 //Start a local development server
-gulp.task('connect', ['browserify'], function() {
+/*gulp.task('connect', ['browserify'], function() {
 	connect.server({
 		port: config.port,
 		base: config.devBaseUrl,
@@ -40,7 +40,7 @@ gulp.task('open', ['connect'], function() {
 	gulp.src('index.html')
 		.pipe(open({ uri: config.devBaseUrl + ':' + config.port + '/'}));
 });
-
+*/
 gulp.task('jquery', function() {
 	gulp.src(config.paths.jquery)
 		.pipe(gulp.dest(config.paths.dist + '/lib'))
@@ -98,4 +98,4 @@ gulp.task('watch', function() {
 	gulp.watch(config.paths.js, ['js', 'lint']);
 });
 
-gulp.task('default', [ 'js', 'jquery','browserify', 'fonts' ,'bootstrap', 'angular', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', [ 'js', 'jquery','browserify', 'fonts' ,'bootstrap', 'angular', 'css', 'lint']);
